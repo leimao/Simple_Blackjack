@@ -8,7 +8,9 @@ University of Chicago
 
 [Blackjack](https://en.wikipedia.org/wiki/Blackjack) is a popular gambling game in the United States. This Simple Blackjack game was written in Haskell. 
 
-## Simplification and Specification
+## Rules
+
+The rules of Blackjack could be found on [Wikipedia](https://en.wikipedia.org/wiki/Blackjack) or this [video tutorial](https://www.youtube.com/watch?v=5bWpnABkU-Y).
 
 For simplicity, we have the following specifications:
 
