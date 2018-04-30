@@ -102,11 +102,27 @@ gameLoop gameState@(Game {user = Player userhand, dealer = Player dealerhand, st
 {- Main -}
 main :: IO () 
 main = do 
+    {-
     putStrLn ""
     putStrLn "================================="
     putStrLn "Welcome to the game of BlackJack!"
     putStrLn "================================="
     putStrLn ""
+    -}
+
+    {- ASCII art modified from https://github.com/werdlerk/blackjack-console/blob/master/blackjack-oop/blackjack_view.rb -}
+    putStrLn ""
+    putStrLn ("+" ++ "----------------------------------------------" ++ "+")
+    putStrLn ("|" ++ "  ____  _            _     _            _     " ++ "|")
+    putStrLn ("|" ++ " | __ )| | __ _  ___| | __(_) __ _  ___| | __ " ++ "|")
+    putStrLn ("|" ++ " |  _ \\| |/ _` |/ __| |/ /| |/ _` |/ __| |/ / " ++ "|")
+    putStrLn ("|" ++ " | |_) | | (_| | (__|   < | | (_| | (__|   <  " ++ "|")
+    putStrLn ("|" ++ " |____/|_|\\__,_|\\___|_|\\_\\/ |\\__,_|\\___|_|\\_\\ " ++ "|")
+    putStrLn ("|" ++ "                        |__/                  " ++ "|")
+    putStrLn ("+" ++ "----------------------------------------------" ++ "+")
+    putStrLn ""
+
     deck <- shuffle getDeck
     let game = initGame deck 
     gameLoop game
+
