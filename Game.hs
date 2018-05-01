@@ -37,7 +37,6 @@ initGame deck@(c1:c2:c3:c4:rest) = Game {user = Player [c1, c2], dealer = Player
 softHand :: Hand -> Bool
 softHand hand = (elem Ace hand)
 
-
 {- The value of Ace is 1 -}
 hardScore :: Hand -> Int
 hardScore hand = foldl (\accum x -> accum + (cardValue x)) 0 hand
@@ -58,6 +57,10 @@ maxValidScore hand = if soft > 21 then hard else soft where
 cardCounter :: [Card] -> Int
 cardCounter cards = foldl (\accum x -> accum + 1) 0 cards
 
+{- Count the Aces at hand or in deck -}
+aceCounter :: [Card] -> Int
+aceCounter cards = foldl (\accum x -> if x == Ace then accum + 1 else accum) 0 cards
+
 {- Check if hand is black jack -}
 {- Black jack: The value of the hand (two cards) at the beginning of the game adds up to 21. -}
 blackJack :: Hand -> Bool
@@ -69,6 +72,9 @@ bust :: Hand -> Bool
 bust hand = hardScore hand > 21
 
 
+soft17 :: Hand -> Bool
+soft17 hand = (maxValidScore hand == 17) && (aceCounter hand == 1) && (hardScore hand == 7) 
+
 {- deal card to user or dealer -}
 dealCard :: Game -> Game
 dealCard game@(Game {user = Player userhand, dealer = Player dealerhand, status = gstatus, deck = (x:xs)})
@@ -79,7 +85,7 @@ dealCard game@(Game {user = Player userhand, dealer = Player dealerhand, status 
 {- AI determine if dealer hits -}
 {- Deterministic -}
 dealerHits :: Game -> Bool
-dealerHits (Game {user = Player userhand,  dealer = Player dealerhand, status = DealerTurn, deck = _}) = (maxValidScore dealerhand < 17) || (maxValidScore dealerhand == 17 && softHand dealerhand) -- || ((maxValidScore dealerhand) < (maxValidScore userhand))
+dealerHits (Game {user = Player userhand,  dealer = Player dealerhand, status = DealerTurn, deck = _}) = (maxValidScore dealerhand < 17) || (soft17 dealerhand)
 
 {- Dealer turn of play -}
 dealerTurn :: Game -> Game

@@ -33,7 +33,7 @@ For simplicity, we have the following specifications:
 To install the game, run the following command in the shell:
 
 ```bash
-$ ghc Blackjack.hs
+$ make
 ```
 
 If got error with ``System.Random`` during compile, please try to fix with:
