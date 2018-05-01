@@ -17,7 +17,7 @@ For simplicity, we have the following specifications:
 * No shoes. Just use a single deck of cards randomly shuffled.
 * No splits.
 * No money (namely betting)/insurance.
-* Dealer must hit on soft 17.
+* Dealer must hit on [soft 17](http://www.readybetgo.com/blackjack/strategy/soft-17-rule-2496.html).
 * Every game starts with a new deck.
 * Allow player to hit when the score is 21.
 
