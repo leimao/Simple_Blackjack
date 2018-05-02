@@ -34,12 +34,12 @@ showCards :: Game -> IO ()
 showCards game@(Game {user = Player userhand, dealer = Player dealerhand, status = gstatus, deck = gdeck}) = do
     putStrLn "Dealer's hand:"
     showDealerHand dealerhand gstatus
-    putStrLn "Dealer's Score:"
+    putStrLn "Dealer's score:"
     showDealerScore dealerhand gstatus
     putStrLn "--------------------"
     putStrLn "Player's hand:"
     showHand userhand
-    putStrLn "Player's Score:"
+    putStrLn "Player's score:"
     showScore userhand
 
 {- Show all the cards in hand -}
